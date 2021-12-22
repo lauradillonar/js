@@ -1,0 +1,39 @@
+#container2 {
+    display: flex;
+    flex-wrap: wrap;
+    flex-flow: column;
+    text-align: left;
+}
+
+#text1 {
+    width: 100%;
+    border: 1px solid var(--second-color);
+    border-radius: 5px;
+    margin-top: 50px;
+    padding: 10px;
+}
+
+#text2 {
+    width: 100%;
+    margin-top: 5px;
+    border: 1px solid var(--second-color);
+    border-radius: 5px;
+    padding: 5px;
+}
+
+#button1 {
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    background-color: var(--second-modal-color);
+    color: antiquewhite;
+    border-radius: 5px;
+}
+
+#button2 {
+    padding: 10px;
+    margin-top: 5px;
+    background-color: var(--second-modal-color);
+    color: antiquewhite;
+    border-radius: 5px;
+}
