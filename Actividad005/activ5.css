@@ -1,0 +1,97 @@
+   #container501 {
+       margin-top: 10px;
+       text-align: center;
+   }
+   
+   #container502 {
+       margin-top: 10px;
+       text-align: center;
+   }
+   
+   #container503 {
+       margin-top: 10px;
+       margin-right: -20px;
+       text-align: center;
+   }
+   
+   .grid5 {
+       display: inline-grid;
+       grid-template-columns: 80px;
+       grid-template-rows: repeat(8, 36px);
+       justify-content: center;
+       align-items: flex-start;
+       row-gap: 2px;
+       column-gap: 2px;
+       padding-right: 0px;
+       margin-right: 0px;
+   }
+   
+   .grid5 p {
+       color: var(--second-color);
+       font-weight: bold;
+       margin-top: 4px;
+   }
+   
+   .text501 {
+       background-color: var(--natural-color);
+       color: var(--dark-blue);
+       width: 70px;
+       text-align: center;
+       padding: 7px;
+       border-radius: 5px;
+       font-weight: bold;
+   }
+   
+   .text502 {
+       background-color: var(--white);
+       color: var(--dark-blue);
+       width: 70px;
+       text-align: center;
+       padding: 7px;
+       border-radius: 5px;
+       font-weight: bold;
+   }
+   
+   #button5 {
+       padding: 10px;
+       padding-left: 9px;
+       padding-right: 9px;
+       margin-top: 5px;
+       margin-left: -40px;
+       background-color: var(--second-modal-color);
+       color: antiquewhite;
+       border-radius: 5px;
+   }
+   
+   #delButton5 {
+       padding: 10px;
+       padding-left: 12px;
+       padding-right: 12px;
+       margin-top: 5px;
+       margin-left: -40px;
+       background-color: var(--second-modal-color);
+       color: antiquewhite;
+       border-radius: 5px;
+   }
+   
+   #randomButton5 {
+       padding: 10px;
+       margin-top: 5px;
+       margin-left: -40px;
+       background-color: var(--second-modal-color);
+       color: antiquewhite;
+       border-radius: 5px;
+   }
+   
+   #msg5 {
+       border: 1px solid var(--main-color);
+       border-radius: 5px;
+       padding: 10px;
+       margin-right: -20px;
+       width: 260px;
+       height: 70px;
+   }
+   
+   .msg5 {
+       margin-right: 20px;
+   }
