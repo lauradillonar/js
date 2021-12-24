@@ -20,6 +20,7 @@ export default function saveTextBox() {
         if ($text1.value !== "") {
             $text2.value += $text1.value + '\n';
             $text1.value = "";
+            $text1.focus();
         }
     }
 
