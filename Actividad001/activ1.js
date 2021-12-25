@@ -6,6 +6,7 @@ const $list = d.getElementById("list");
 export default function initList() {
     $addProduct.addEventListener('click', addProduct);
     $product.addEventListener('keypress', ifEnter);
+    $product.focus();
 
 }
 
@@ -18,6 +19,7 @@ function addProduct() {
         $li.addEventListener('click', removeProduct);
         $list.appendChild($li);
         $product.value = "";
+        $product.focus();
     }
 }
 
