@@ -1,0 +1,216 @@
+export default function oddAndEven() {
+    const d = document;
+    const $form = d.getElementById("frmTransaction4");
+    const $tblData= d.getElementById("table401");
+    const $oddEven = d.querySelector("#button4");
+    const $random = d.querySelector("#randomButton4");
+    const $deleteNumbers = d.querySelector("#delButton4");
+    const $txtNumber = d.getElementById("text4");
+    const $msg4 = d.getElementById("msg4");
+    
+    let numRow = 1;
+
+    let scopeCell = 0; //Columna de id
+    let numCell = 1;  //Columna Numeros
+    let evenCell = 2; //Columna Pares
+    let oddCell = 3;  //Columna Impares
+    
+    $tblData.rows[numRow].cells[numCell].setAttribute("id","id4cell1");
+    $tblData.rows[numRow].cells[numCell].setAttribute("class","selectable");
+    
+    // ****************** Entrada
+    
+    $txtNumber.addEventListener("click", function(e){
+        $tblData.rows[numRow].cells[numCell].style.backgroundColor="#d8d0bf";
+        $txtNumber.select();
+    });
+    
+    $txtNumber.addEventListener("blur", function(e){
+        $tblData.rows[numRow].cells[numCell].removeAttribute("style");
+    });
+    
+    
+    $tblData.addEventListener("click", function(e){
+        $tblData.rows[numRow].cells[numCell].removeAttribute("style");
+        if(e.target.id!==""){
+            let $rowClic = d.getElementById(e.target.id);
+            $rowClic.style.backgroundColor="#d8d0bf";
+            numRow = e.target.id.replace("id4cell","");
+            $txtNumber.value= $rowClic.textContent;
+            $txtNumber.select();
+            $txtNumber.focus();
+        }
+    });
+    
+    $form.addEventListener("submit", function(e){
+        e.preventDefault(); // evita que actualice la pagina
+        let frmData = new FormData($form);
+        let txt = frmData.get("text4");
+        $tblData.rows[numRow].cells[numCell].textContent=txt;
+        if (typeof txt !== "number" || txt === "") {
+                    if (isNaN(txt))
+                        $msg4.value += `"${txt}" no es un número.\n`;
+                }
+        // Como ingresó algo nuevo, habría que borrar o regenerar las columnas de pares e impares
+        
+        if(numRow < 10){
+            $tblData.rows[numRow].cells[numCell].removeAttribute("style");
+            numRow++;
+            if($tblData.rows.length < 11){
+                if(numRow === $tblData.rows.length ){
+                    let newRowRef = $tblData.insertRow(-1); //Inserta una fila al final
+                    let newCellRef = newRowRef.insertCell(scopeCell); // Inserta la primer celda en esa fila
+                    newCellRef.textContent = numRow;
+                    let newNumCellRef = newRowRef.insertCell(numCell);
+                    newNumCellRef.setAttribute("id","id4cell"+numRow);
+                    newNumCellRef.classList.add("selectable");
+                    let newEvenCellRef = newRowRef.insertCell(evenCell);
+                    let newOddCellRef = newRowRef.insertCell(oddCell);
+                }
+            }
+            
+            $tblData.rows[numRow].cells[numCell].style.backgroundColor="#d8d0bf";
+            $tblData.rows[numRow].cells[evenCell].textContent = "";
+            $tblData.rows[numRow].cells[oddCell].textContent = "";
+            
+            
+        }else{ 
+            $tblData.rows[numRow].cells[numCell].removeAttribute("style");
+            numRow=1;
+            $tblData.rows[numRow].cells[numCell].style.backgroundColor="#d8d0bf";
+        }
+        
+        let even=2;
+        let odd=3;
+        for(let i=1; i<$tblData.rows.length; i++){
+            $tblData.rows[i].cells[even].textContent = "";
+            $tblData.rows[i].cells[odd].textContent = "";
+        }
+        
+        $txtNumber.value=$tblData.rows[numRow].cells[numCell].textContent;
+        $txtNumber.select();
+        $txtNumber.focus();
+    });
+    
+    
+    // ****************** Proceso y Salida
+    
+    $oddEven.addEventListener("click", separateOddEven);
+    $deleteNumbers.addEventListener("click", delNumbers);
+    $random.addEventListener("click", random)
+
+    function separateOddEven() {
+    
+        const array1 = [];
+        let num=1;
+        
+        for(let i=1; i<$tblData.rows.length; i++){
+            array1.push($tblData.rows[i].cells[num].textContent);
+        }
+
+        const separate = (arr = undefined) => {
+
+            if (arr === undefined) return $msg4.value += "No ingresaste un arreglo de números.\n";
+
+            if (!(arr instanceof Array)) return $msg4.value += "El valor que ingresaste no es un arreglo. \n";
+
+            if (arr.length === 0) return $msg4.value += "El arreglo está vacío.\n";
+
+            for (let num of arr) {
+                if (typeof num !== "number" || num === "") {
+                    if (isNaN((num)))
+                        $msg4.value += `"${num}" no es un número.\n`;
+                }
+            }
+
+            const finalObject = {
+                pares: arr.filter(num => num!=="" && num % 2 === 0),
+                impares: arr.filter(num => num!=="" && num % 2 === 1)
+            }
+            
+            // ************** Mostrar pares e impares
+            for(let i=1; i<$tblData.rows.length ;i++){
+                if((i-1)<finalObject.pares.length){
+                    $tblData.rows[i].cells[2].textContent = finalObject.pares[i-1]; 
+                }else{
+                    $tblData.rows[i].cells[2].textContent = "";
+                }
+            }
+            
+            for(let i=1; i<$tblData.rows.length ;i++){
+                if((i-1)<finalObject.impares.length){
+                    $tblData.rows[i].cells[3].textContent = finalObject.impares[i-1]; 
+                }else{
+                    $tblData.rows[i].cells[3].textContent = "";
+                }
+            }
+            
+            return finalObject;
+        }
+
+        console.log(separate(array1));
+        
+        
+    
+    }
+
+    function random() {
+        delNumbers();
+        
+        let num=1;
+        let even=2;
+        let odd=3;
+        
+        const list = [];
+        
+        for (let i = 0; i < 10; i++) {
+            list[i] = Math.round(Math.random() * 100);
+        }
+        
+        for(let i=2; i<11; i++){
+            let newRowRef = $tblData.insertRow(-1); //Inserta una fila al final
+            let newCellRef = newRowRef.insertCell(scopeCell); // Inserta la primer celda en esa fila
+            newCellRef.textContent = i;
+            let newNumCellRef = newRowRef.insertCell(numCell);
+            newNumCellRef.setAttribute("id","id4cell"+i);
+            newNumCellRef.classList.add("selectable");
+            let newEvenCellRef = newRowRef.insertCell(evenCell);
+            let newOddCellRef = newRowRef.insertCell(oddCell);
+        }
+        
+        for(let i=1; i<11; i++){
+            $tblData.rows[i].cells[num].textContent = list[i-1];
+        }
+        
+        separateOddEven();
+        
+        numRow = 1;
+        $tblData.rows[numRow].cells[num].removeAttribute("style");
+        $txtNumber.blur();
+        
+    }
+
+    function delNumbers() {
+        let num=1;
+        let even=2;
+        let odd=3;
+        for(let i=1; i<$tblData.rows.length; i++){
+            $tblData.rows[i].cells[num].textContent = "";
+            $tblData.rows[i].cells[even].textContent = "";
+            $tblData.rows[i].cells[odd].textContent = "";
+        }
+        
+        $msg4.value = "";
+        $txtNumber.value="";
+        
+        let totalRows = $tblData.rows.length;
+        for(let i=1; i<totalRows-1; i++){
+            $tblData.deleteRow(-1);
+        }
+        
+        numRow = 1;
+        $tblData.rows[numRow].cells[num].style.backgroundColor="#d8d0bf";
+        $txtNumber.select();
+        $txtNumber.focus();
+    }
+}
