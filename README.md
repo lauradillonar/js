@@ -7,6 +7,8 @@ Actividad003-005: Uso de tablas con Bootstrap y JS para lograr interacción para
 
 Actividad006: Ejemplo de uso de datatables para mostrar tablas con datos.
 
-Actividad007: Reloj digital y alarma sonora. Uso de temporizadores en el DOM. Por Jon Mircha.
+Actividad007: DOM. Reloj digital y alarma sonora. Uso de temporizadores en el DOM. Por Jon Mircha.
 
-Actividad008: Eventos del Teclado. Por Jon Mircha
+Actividad008: DOM. Eventos del teclado. Por Jon Mircha.
+
+Actividad009: DOM. Cuenta regresiva. Por Jon Mircha.
