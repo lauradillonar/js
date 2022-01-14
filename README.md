@@ -13,6 +13,8 @@ Actividad008: DOM. Eventos del teclado. Por Jon Mircha.
 
 Actividad009: DOM. Cuenta regresiva. Por Jon Mircha.
 
+Actividad010: DOM. Responsive con JavaScript. Por Jon Mircha.
+
 Actividades/Dark Theme - Scroll Button: Por Jon Mircha.
 
 Actividades/DarkTheme-API-localStorage: Por Jon Mircha.
