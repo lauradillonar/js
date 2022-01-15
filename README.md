@@ -17,6 +17,8 @@ Actividad010: DOM. Responsive con JavaScript. Por Jon Mircha.
 
 Actividad011: DOM. Responsive Tester. Por Jon Mircha.
 
+Actividad012: DOM. Responsive Slider. Por Jon Mircha.
+
 Actividades/Dark Theme - Scroll Button: Por Jon Mircha.
 
 Actividades/DarkTheme-API-localStorage: Por Jon Mircha.
