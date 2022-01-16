@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es" data-dark>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Actividades</title>
+</head>
+
+<body data-dark>
+    <aside class="panel">
+        <nav class="menu">
+            <a href="#section1" data-scroll-spy>
+               Lista de compras
+            </a>
+            <a href="#section2" data-scroll-spy>
+                Cajas de texto
+            </a>
+
+        </nav>
+    </aside>
+    <header>
+    </header>
+    <main>
+
+        <section id="section1" class="section" data-scroll-spy>
+            <h4>ACTIVIDAD 1</h4>
+            <h5>LISTA DE COMPRAS</h5>
+            <section>
+                <article>
+                    <input type="text" id="product" placeholder="Escribe un producto">
+                </article>
+                <article>
+                    <input type="button" id="addProduct" class="button" value="Guardar">
+                </article>
+                <article>
+                    <ol id="list" class="list list-group list-group-flush list-group-numbered" data-dark>
+
+                    </ol>
+                </article>
+            </section>
+            <section>
+                <button id="ref1-btn" class="ref-btn" onclick="showReference(1)">Referencias</button>
+                <div id="reference1" class="change hidden">
+                    <br><a href="https://github.com/lauradillonar/js/tree/main/Actividad001" target="blank">Ver c&oacute;digo en GitHub</a>
+                </div>
+            </section>
+        </section>
+        <section id="section2" class="section" data-scroll-spy>
+            <h4>ACTIVIDAD 2</h4>
+            <h5>CAJAS DE TEXTO</h5>
+            <section id="container">
+                <article>
+                    <input type="text" id="text1" placeholder="Escribir mensaje">
+                </article>
+                <article>
+                    <button id="button1" class="button">Guardar</button>
+                </article>
+                <article id="item2">
+                    <textarea name="text2" id="text2" cols="30" rows="10" data-dark>
+                                </textarea>
+                </article>
+                <article>
+                    <input type="button" id="button2" class="button" value="Borrar">
+                </article>
+            </section>
+            <section>
+                <button id="ref2-btn" class="ref-btn" onclick="showReference(2)">Referencias</button>
+                <div id="reference2" class="change hidden">
+                    <a href="https://github.com/lauradillonar/js/tree/main/Actividad002" target="blank">Ver C&oacute;digo en GitHub</a>
+                </div>
+            </section>
+        </section>
+
+    </main>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/index.js" type="module"></script>
+
+</body>
+
+</html>

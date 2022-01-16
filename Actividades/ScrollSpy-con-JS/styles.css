@@ -1,0 +1,125 @@
+:root {
+    --main-font: sans-serif;
+    --font-size: 14px;
+    --main-color: rgba(137, 192, 111, 0.85);
+    ;
+    --second-color: #222;
+    --main-modal-color: rgba(137, 192, 111, 0.5);
+    ;
+    --second-modal-color: rgba(34, 34, 34, 0.85);
+    --white: #ffffff;
+    --dark-blue: rgb(100, 100, 130);
+    --black-color: rgb(105, 105, 105);
+    --green: rgba(137, 192, 111);
+    /* otros verdes #87b870; a8e98b*/
+    --container-width: 1200px;
+    --gray-color: #456173;
+    --gray-light-color: #ccc;
+    --natural-color: #d8d0bf;
+    --natural-dark-color: rgb(88, 86, 80);
+    --natural-claro-color: rgba(216, 208, 191, .5);
+}
+
+@font-face {
+    font-family: "Nunito";
+    src: url("../fonts/Nunito-Regular.ttf");
+}
+
+html {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    overflow-x: hidden;
+    font-family: "Nunito";
+    font-size: var(--font-size);
+}
+
+
+/* ************** ScrollSpy ************** */
+
+@media only screen and (max-width:992px) {
+    body {
+        display: grid;
+        grid-template-columns: 90% 10%;
+        grid-template-rows: 130px auto;
+        grid-template-areas: "header header" "main panel";
+    }
+    main {
+        grid-area: main;
+    }
+    header {
+        grid-area: header;
+    }
+    .panel {
+        grid-area: panel;
+    }
+}
+
+@media only screen and (min-width:992px) {
+    body {
+        display: grid;
+        grid-template-columns: 25% 55% 20%;
+        grid-template-rows: auto;
+        grid-template-areas: "header main panel";
+    }
+    main {
+        grid-area: main;
+    }
+    header {
+        position: fixed;
+        top: 0;
+        grid-area: header;
+    }
+    .panel {
+        grid-area: panel;
+        align-self: start;
+        position: sticky;
+        top: 30px;
+        bottom: 30px;
+        right: 30px;
+        height: 90vh;
+        justify-content: flex-start;
+        transform: translate(0, 0);
+        opacity: 1;
+        visibility: visible;
+        background-color: var(--main-modal-color);
+        color: var(--second-color);
+        border-radius: 1rem;
+    }
+    .panel b {
+        font-size: .8rem;
+    }
+    .panel-btn {
+        display: none;
+    }
+    .menu {
+        justify-content: start;
+        text-align: right;
+    }
+    .menu a {
+        color: var(--second-modal-color);
+    }
+    .menu a:hover {
+        background-color: var(--main-modal-color);
+    }
+    .menu a.active {
+        color: var(--second-color);
+        background-color: var(--main-color);
+    }
+    .scroll-top-btn {
+        right: initial;
+        left: 30px;
+        bottom: 30px;
+    }
+}
